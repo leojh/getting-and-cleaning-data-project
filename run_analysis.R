@@ -1,6 +1,6 @@
 library(plyr)
 
-READ AND COMPILE ALL DATA
+#READ AND COMPILE ALL DATA
 features <- read.table("features.txt")
 
 activity_labels <- read.table()
@@ -28,7 +28,7 @@ allData <- rename(allData, replace = c("V2" = "activity"))
 
 head(allData)
 
-CREATE TIDY SET
+#CREATE TIDY SET
 tidy_data <- ddply(allData, .(subject, activity), function(x) colMeans(x[, 1:66]))
 
 write.table(tidy_data, "tidy.txt", row.name=FALSE)
